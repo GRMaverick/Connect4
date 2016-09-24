@@ -10,13 +10,25 @@ class Board(object):
     def Draw(self):
         print()
         for index in reversed(range(0, 8)):
+            print(self.__pBoardGraphic[0] & 2**index, " ", self.__pBoardGraphic[1] & 2**index, " ", self.__pBoardGraphic[2] & 2**index, " ", self.__pBoardGraphic[3] & 2**index, " ", self.__pBoardGraphic[4] &2**index, " ", self.__pBoardGraphic[5] & 2**index , " ", self.__pBoardGraphic[6] & 2**index, " ", self.__pBoardGraphic[7] & 2**index)
+        print()
+
+        # DEBUG
+        for index in reversed(range(0, 8)):
             print(self.__pBoard[0] & 2**index, " ", self.__pBoard[1] & 2**index, " ", self.__pBoard[2] & 2**index, " ", self.__pBoard[3] & 2**index, " ", self.__pBoard[4] &2**index, " ", self.__pBoard[5] & 2**index , " ", self.__pBoard[6] & 2**index, " ", self.__pBoard[7] & 2**index)
         print()
+
+# for each binary position
+        # arrayposition * 2**BinaryPosition
+        # if ^ = 0
+            # YELLOW
+        #else
+            # RED
         
-    def GetNextAvailable(self, column):
+    def GetNextAvailable(self, board, column):
         BIT_POSITION = 0
         BIT_SWITCH = 2 ** BIT_POSITION
-        while(self.__pBoard[column] & BIT_SWITCH):
+        while(board[column] & BIT_SWITCH):
             BIT_POSITION += 1
             BIT_SWITCH = 2 ** BIT_POSITION
         return BIT_POSITION
@@ -39,4 +51,8 @@ class Board(object):
                 self.PlaceToken(int(input("Please enter a column between 1 and 8: ")), player)
         else:
             self.__pLastPlayer = player
-            self.__pBoard[column-1] = self.__pBoard[column-1] + (2 ** self.GetNextAvailable(column-1))
+            value = (2 ** self.GetNextAvailable(self.__pBoard, column-1))
+            self.__pBoard[column-1] = self.__pBoard[column-1] + value
+            if(player == 0):
+               self.__pBoardGraphic[column-1] = self.__pBoardGraphic[column-1] + value
+            
