@@ -45,7 +45,7 @@ def Draw():
     print("Player: ", PLAYER_TURN+1)
 
 def GameOver():
-    print("The winner is:", WINNER)
+    print("The winner is:", (WINNER+1)
     try:
         PLAYER_INPUT = input("Play again? ( Yes | No )")
     except ValueError:
