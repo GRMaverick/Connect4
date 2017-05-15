@@ -1,3 +1,5 @@
+from Colours import Colours
+
 class Board(object):
     __pHeight = 6
     __pWidth = 7
@@ -65,13 +67,13 @@ class Board(object):
         print()
         for index in reversed(range(0, self.__pHeight)):
             print(
-                "[        ]" if self.__pBoard[0] & 2**index == 0 else "[   RED  ]" if self.__pBoardGraphic[0] & 2**index else "[ YELLOW ]" if self.__pBoardGraphic[0] & 2**index == 0 else print("X"),
-                "[        ]" if self.__pBoard[1] & 2**index == 0 else "[   RED  ]" if self.__pBoardGraphic[1] & 2**index else "[ YELLOW ]" if self.__pBoardGraphic[1] & 2**index == 0 else print("X"),
-                "[        ]" if self.__pBoard[2] & 2**index == 0 else "[   RED  ]" if self.__pBoardGraphic[2] & 2**index else "[ YELLOW ]" if self.__pBoardGraphic[2] & 2**index == 0 else print("X"),
-                "[        ]" if self.__pBoard[3] & 2**index == 0 else "[   RED  ]" if self.__pBoardGraphic[3] & 2**index else "[ YELLOW ]" if self.__pBoardGraphic[3] & 2**index == 0  else print("X"),
-                "[        ]" if self.__pBoard[4] & 2**index == 0 else "[   RED  ]" if self.__pBoardGraphic[4] & 2**index else "[ YELLOW ]" if self.__pBoardGraphic[4] & 2**index == 0  else print("X"),
-                "[        ]" if self.__pBoard[5] & 2**index == 0 else "[   RED  ]" if self.__pBoardGraphic[5] & 2**index else "[ YELLOW ]" if self.__pBoardGraphic[5] & 2**index == 0  else print("X"),
-                "[        ]" if self.__pBoard[6] & 2**index == 0 else "[   RED  ]" if self.__pBoardGraphic[6] & 2**index else "[ YELLOW ]" if self.__pBoardGraphic[6] & 2**index == 0  else print("X"))
+                "[        ]" if self.__pBoard[0] & 2**index == 0 else "[" + Colours.RED + "  RED   " + Colours.NORMAL + "]" if self.__pBoardGraphic[0] & 2**index else "[" + Colours.YELLOW + " YELLOW " + Colours.NORMAL + "]" if self.__pBoardGraphic[0] & 2**index == 0 else print("X"),
+                "[        ]" if self.__pBoard[1] & 2**index == 0 else "[" + Colours.RED + "  RED   " + Colours.NORMAL + "]" if self.__pBoardGraphic[1] & 2**index else "[" + Colours.YELLOW + " YELLOW " + Colours.NORMAL + "]" if self.__pBoardGraphic[1] & 2**index == 0 else print("X"),
+                "[        ]" if self.__pBoard[2] & 2**index == 0 else "[" + Colours.RED + "  RED   " + Colours.NORMAL + "]" if self.__pBoardGraphic[2] & 2**index else "[" + Colours.YELLOW + " YELLOW " + Colours.NORMAL + "]" if self.__pBoardGraphic[2] & 2**index == 0 else print("X"),
+                "[        ]" if self.__pBoard[3] & 2**index == 0 else "[" + Colours.RED + "  RED   " + Colours.NORMAL + "]" if self.__pBoardGraphic[3] & 2**index else "[" + Colours.YELLOW + " YELLOW " + Colours.NORMAL + "]" if self.__pBoardGraphic[3] & 2**index == 0  else print("X"),
+                "[        ]" if self.__pBoard[4] & 2**index == 0 else "[" + Colours.RED + "  RED   " + Colours.NORMAL + "]" if self.__pBoardGraphic[4] & 2**index else "[" + Colours.YELLOW + " YELLOW " + Colours.NORMAL + "]" if self.__pBoardGraphic[4] & 2**index == 0  else print("X"),
+                "[        ]" if self.__pBoard[5] & 2**index == 0 else "[" + Colours.RED + "  RED   " + Colours.NORMAL + "]" if self.__pBoardGraphic[5] & 2**index else "[" + Colours.YELLOW + " YELLOW " + Colours.NORMAL + "]" if self.__pBoardGraphic[5] & 2**index == 0  else print("X"),
+                "[        ]" if self.__pBoard[6] & 2**index == 0 else "[" + Colours.RED + "  RED   " + Colours.NORMAL + "]" if self.__pBoardGraphic[6] & 2**index else "[" + Colours.YELLOW + " YELLOW " + Colours.NORMAL + "]" if self.__pBoardGraphic[6] & 2**index == 0  else print("X"))
         print()
         
     def GetNextAvailable(self, board, column):
